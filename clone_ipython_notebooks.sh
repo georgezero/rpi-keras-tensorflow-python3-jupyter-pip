@@ -1,0 +1,25 @@
+#!/bin/bash
+git clone https://github.com/jrjohansson/scientific-python-lectures.git
+git clone https://github.com/jrjohansson/numerical-python-book-code.git
+git clone https://github.com/jakevdp/WhirlwindTourOfPython.git
+git clone https://github.com/jakevdp/PythonDataScienceHandbook.git
+git clone https://github.com/ipython-books/minibook-2nd-code.git
+git clone https://github.com/pkmital/CADL.git
+git clone https://github.com/pkmital/tensorflow_tutorials.git
+git clone https://bitbucket.org/hrojas/learn-pandas.git
+git clone https://github.com/jdwittenauer/ipython-notebooks.git
+git clone https://github.com/gumption/Python_for_Data_Science.git
+git clone https://github.com/leriomaggio/deep-learning-keras-tensorflow.git
+git clone https://github.com/nborwankar/LearnDataScience.git
+git clone https://github.com/ehmatthes/intro_programming.git
+git clone https://github.com/ricardoduarte/python-for-developers.git
+git clone https://github.com/yoavram/CS1001.py.git
+git clone https://github.com/jdwittenauer/ipython-notebooks.git
+git clone https://github.com/rhiever/Data-Analysis-and-Machine-Learning-Projects.git
+git clone https://github.com/TomAugspurger/PyDataSeattle.git
+git clone https://github.com/TomAugspurger/modern-pandas.git
+git clone https://github.com/nealcaren/workshop_2014.git
+git clone https://github.com/fonnesbeck/statistical-analysis-python-tutorial.git
+git clone https://github.com/jvns/pandas-cookbook.git
+git clone https://github.com/fonnesbeck/Bios8366.git
+git clone https://github.com/chris1610/pbpython.git
