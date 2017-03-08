@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie-20160915
+FROM resin/rpi-raspbian:latest
 
 RUN apt-get update && \ 
 	apt-get install -y --no-install-recommends \
@@ -57,12 +57,13 @@ RUN pip install -U scikit-learn
 RUN pip install -U keras
 RUN pip install -U pandas
 RUN pip install -U statsmodels
+RUN pip install -U xlrd
 
 RUN python3 -m ipykernel.kernelspec
 
 # Jupyter themes
 RUN pip install -U jupyterthemes
-RUN jt -t oceans16 -f roboto -fs 12
+RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T
 
 COPY jupyter_notebook_config.py /root/.jupyter/
 
@@ -77,9 +78,8 @@ COPY run_jupyter.sh /
 
 # TensorFlow
 
-RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v0.11.0/tensorflow-0.11.0-py3-none-any.whl
-RUN sudo pip3 install tensorflow-0.11.0-py3-none-any.whl
-
+RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.0/tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
+RUN sudo pip3 install tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
 #ENV TENSORFLOW_VERSION 0.10.0rc0
 
 #RUN pip --no-cache-dir install \
@@ -97,6 +97,7 @@ RUN chsh -s /usr/bin/zsh
 # use grml zshrc (https://grml.org/zsh/)
 RUN wget -O ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 RUN wget -O ~/.zshrc.local  http://git.grml.org/f/grml-etc-core/etc/skel/.zshrc
+RUN echo "TERM=xterm-256color" >> ~/.zshrc
 
 # tensorboard
 EXPOSE 6006

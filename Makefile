@@ -1,5 +1,5 @@
 IMGNAME = rpi-keras-tensorflow-python3-jupyter-pip
-VERSION = 0.11
+VERSION = 1.0.0
 USER=georgezero
 .PHONY: all build test taglatest  
 
