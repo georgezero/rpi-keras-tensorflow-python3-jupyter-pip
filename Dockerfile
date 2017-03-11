@@ -58,6 +58,7 @@ RUN pip install -U keras
 RUN pip install -U pandas
 RUN pip install -U statsmodels
 RUN pip install -U xlrd
+RUN pip install -U openpyxl
 
 RUN python3 -m ipykernel.kernelspec
 
@@ -65,7 +66,12 @@ RUN python3 -m ipykernel.kernelspec
 RUN pip install -U jupyterthemes
 RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T
 
+# Jupyter notebook config to accept password
 COPY jupyter_notebook_config.py /root/.jupyter/
+
+# Jupyter add gist button
+RUN jupyter nbextension install https://rawgithub.com/minrk/ipython_extensions/master/nbextensions/gist.js
+RUN jupyter nbextension enable gist
 
 # Copy sample notebooks.
 COPY notebooks /notebooks
