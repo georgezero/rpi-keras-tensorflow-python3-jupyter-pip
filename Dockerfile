@@ -59,6 +59,8 @@ RUN pip install -U pandas
 RUN pip install -U statsmodels
 RUN pip install -U xlrd
 RUN pip install -U openpyxl
+RUN pip install -U jupyterlab
+
 
 RUN python3 -m ipykernel.kernelspec
 
@@ -68,6 +70,9 @@ RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T
 
 # Jupyter notebook config to accept password
 COPY jupyter_notebook_config.py /root/.jupyter/
+
+# JupyterLab
+RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 
 # Jupyter add gist button
 RUN jupyter nbextension install https://rawgithub.com/minrk/ipython_extensions/master/nbextensions/gist.js
@@ -84,10 +89,11 @@ COPY run_jupyter.sh /
 
 # TensorFlow
 
-RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.0/tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
-RUN sudo pip3 install tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
-#ENV TENSORFLOW_VERSION 0.10.0rc0
-
+ENV TENSORFLOW_VERSION 1.0.1
+RUN pip3 --no-cache-dir install \
+		https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.1/tensorflow-1.0.1-cp34-cp34m-linux_armv7l.whl
+#RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.0/tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
+#RUN sudo pip3 install tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
 #RUN pip --no-cache-dir install \
 #        https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp34-cp34m-linux_x86_64.whl
 

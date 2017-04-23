@@ -1,5 +1,5 @@
 IMGNAME = rpi-keras-tensorflow-python3-jupyter-pip
-VERSION = 1.0.0
+VERSION = 1.0.1
 USER=georgezero
 .PHONY: all build test taglatest  
 
@@ -45,5 +45,6 @@ push:
 	docker push $(USER)/$(IMGNAME):$(VERSION)
 release: taglatest push
 
+# 1.0.1 add jupyter lab 0.20, TF 1.0.1
 # 0.2 add jupyterthemes, zsh, tmux
 # 0.11 add tensorflow 0.11, keras, pandas, statsmodels
