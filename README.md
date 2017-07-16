@@ -5,9 +5,10 @@ Tensorflow Python3 Jupyter
 
 Using mostly standard raspbian pre-compiled packages that were available
 
-pip3 install jupyter and ipykernel
-
-Keeping python-scipy and python-numpy just in case
+keras 2.06
+tf 1.1.0
+jupyter 5.1.0
+jupyterlab 0.25.2
 
 # Docker Toolbox
 

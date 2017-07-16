@@ -66,6 +66,7 @@ RUN python3 -m ipykernel.kernelspec
 
 # Jupyter themes
 RUN pip install -U jupyterthemes
+RUN pip install -U lesscpy
 RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T
 
 # Jupyter notebook config to accept password
@@ -89,9 +90,10 @@ COPY run_jupyter.sh /
 
 # TensorFlow
 
-ENV TENSORFLOW_VERSION 1.0.1
+ENV TENSORFLOW_VERSION 1.1.0
 RUN pip3 --no-cache-dir install \
-		https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.1/tensorflow-1.0.1-cp34-cp34m-linux_armv7l.whl
+		https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+		#https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.1/tensorflow-1.0.1-cp34-cp34m-linux_armv7l.whl
 #RUN wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.0.0/tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
 #RUN sudo pip3 install tensorflow-1.0.0-cp34-cp34m-linux_armv7l.whl
 #RUN pip --no-cache-dir install \

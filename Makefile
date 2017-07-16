@@ -1,10 +1,12 @@
 IMGNAME = rpi-keras-tensorflow-python3-jupyter-pip
-VERSION = 1.0.1
+VERSION = 1.1.0
 USER=georgezero
 .PHONY: all build test taglatest  
 
 all: build test
 
+nocache:
+	@docker build --no-cache -t $(IMGNAME):$(VERSION) --rm . && echo Buildname: $(IMGNAME):$(VERSION)
 build:
 	@docker build -t $(IMGNAME):$(VERSION) --rm . && echo Buildname: $(IMGNAME):$(VERSION)
 test:
@@ -45,6 +47,7 @@ push:
 	docker push $(USER)/$(IMGNAME):$(VERSION)
 release: taglatest push
 
+# 1.1.0 keras 2.06, tf 1.1.0, jupyterlab 0.25.2, jupyter 5.1.0
 # 1.0.1 add jupyter lab 0.20, TF 1.0.1
 # 0.2 add jupyterthemes, zsh, tmux
 # 0.11 add tensorflow 0.11, keras, pandas, statsmodels
