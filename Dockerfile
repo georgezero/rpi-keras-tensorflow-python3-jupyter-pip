@@ -60,6 +60,9 @@ RUN pip install -U statsmodels
 RUN pip install -U xlrd
 RUN pip install -U openpyxl
 RUN pip install -U jupyterlab
+RUN pip install -U gensim
+RUN pip install -U nltk
+RUN pip install -U seaborn
 
 
 RUN python3 -m ipykernel.kernelspec
@@ -67,7 +70,7 @@ RUN python3 -m ipykernel.kernelspec
 # Jupyter themes
 RUN pip install -U jupyterthemes
 RUN pip install -U lesscpy
-RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T
+RUN jt -t oceans16 -f roboto -fs 12 -tf roboto -tfs 13 -T -nf inconsolata -nfs 12 
 
 # Jupyter notebook config to accept password
 COPY jupyter_notebook_config.py /root/.jupyter/

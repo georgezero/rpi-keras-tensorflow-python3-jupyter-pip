@@ -1,9 +1,9 @@
 IMGNAME = rpi-keras-tensorflow-python3-jupyter-pip
 VERSION = 1.1.0
 USER=georgezero
-.PHONY: all build test taglatest  
+.PHONY: all nocache build test taglatest  
 
-all: build test
+all: nocache build test
 
 nocache:
 	@docker build --no-cache -t $(IMGNAME):$(VERSION) --rm . && echo Buildname: $(IMGNAME):$(VERSION)
